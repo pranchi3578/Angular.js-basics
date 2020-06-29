@@ -7,7 +7,7 @@
 
       app.directive("w3TestDirective", function () {
         return {
-          template: "I was made in a directive constructor!",
+          template: "<h2>I was made in a directive constructor!</h2>",
         };
       });
     </script>
@@ -15,6 +15,11 @@
 
   <body>
     <div w3-test-directive></div>
+    <!--invoke by attribute-->
+    <br />
+
+    <div><w3-test-directive></w3-test-directive></div>
+    <!--invoke by element-->
     <br />
     <!--ng-repeate is used in accessing each elements in array of objects-->
     <div
