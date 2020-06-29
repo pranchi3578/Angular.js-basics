@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCtrl", function ($scope) {
+        $scope.firstName = "joel";
+        $scope.lastName = "jose";
+      });
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="yourName" placeholder="Enter a name here" />
+      <hr />
+      <h1>Hello {{yourName}}!</h1>
+    </div>
+    <br />
+
+    <!-- ng-init initialises ng variables// data-ng-init is an alternative to ng-init -->
+    <div ng-init="firstName='joel'">
+      <p>the name is <span ng-bind="firstName"></span></p>
+    </div>
+
+    <!--expressions in ng-->
+    <div>
+      <p>my first expression:{{6+6}}</p>
+    </div>
+
+    <!--ng-controller-->
+    <div ng-controller="myCtrl">
+      First Name:<input type="text" ng-model="firstName" /><br />
+      Last Name: <input type="text" ng-model="lastName" /><br />
+      <br />
+      Full name: {{firstName + " " + lastName}}
+    </div>
+    <br />
+    <!--using ng where ever, to change color-->
+    <div ng-init="myColor='lightblue'">
+      <input style="background-color:{{myColor}}" ng-model="myColor" />
+    </div>
+    <br />
+    <div ng-init="quantity=2;cost=5">
+      <p>total : {{quantity*cost}}</p>
+    </div>
+    <br />
+    <div ng-app="" ng-init="firstName='John';lastName='Doe'">
+      <p>The name is <span ng-bind="firstName + ' ' + lastName"></span></p>
+    </div>
+
+    <br />
+    <!--objects in ng-->
+    <div ng-app="" ng-init="person={firstName:'boby',lastName:'Jojy'}">
+      <p>The name is <span ng-bind="person.lastName"></span></p>
+    </div>
+    <br />
+    <!--using arrays-->
+    <div ng-init="points=[1,14,2,3,4]">
+      <p>the third result is <span ng-bind="points[2]"></span></p>
+    </div>
+    <br />
+    <div ng-app="myApp" w3-test-directive></div>
+  </body>
+</html>
